@@ -279,3 +279,46 @@ Push sırasında repoya erişim için bölümün (bandit31) parolasını giriyor
 - `git add`, `git commit`, `git push` man page'leri
 - `gitignore(5)` — `.gitignore` kuralları ve `-f` ile override
 
+OverTheWire Bandit — Level 32 → 33 Writeup
+
+Platform: OverTheWire Bandit Konu: UPPERCASE SHELL kaçışı ($0 ile) + SUID ile parola okuma
+
+Özet
+
+Bandit serisinin (şu an için) son geçişi. Bandit32'ye SSH ile bağlandığımızda bizi "UPPERCASE SHELL" karşılıyor: arka planda çalışan bir binary, yazdığımız her komutu büyük harfe çeviriyor ve böylece ls, cat gibi tüm gerçek komutlar geçersiz hale geliyor (çünkü Linux komutları küçük harflidir). Bu kısıtlı shell'den kaçmak için $0 özel değişkenini kullanıyoruz — içinde hiç harf olmadığı için uppercase'e çevrilemez ve bize normal bir shell açar. Sonrasında dizinde uppershell adında bir SUID binary buluyoruz; sahibi bandit33 olduğu için bu ayrıcalıkla bandit33'ün parola dosyasını okuyabiliyoruz.
+
+Adım Adım Çözüm
+1. UPPERCASE SHELL ile karşılaş
+
+Bandit32'ye SSH ile bağlandığımızda normal bir bash değil, özel bir shell bizi karşılıyor. Ne yazarsak yazalım, shell girdiyi büyük harfe çevirip çalıştırmaya çalışıyor. Örneğin ls → LS oluyor ve "command not found" benzeri bir hata dönüyor. Bu davranışı sağlayan, arka planda çalışan bir binary dosya.
+
+2. $0 ile kaç
+$0
+
+$0, mevcut shell'in/çalışan programın adını tutan özel bir shell parametresidir. İçinde harf olmadığı için uppercase dönüşümünden etkilenmez — shell onu değiştiremez. Bunu çalıştırdığımızda, o an çalışan shell'in kendisi yeni bir oturum olarak başlatılır ve karşımıza normal (küçük harf komutların çalıştığı) bir shell çıkar.
+
+3. Yeni shell'de dizini incele
+
+Normal shell'e düştükten sonra ls çalışıyor ve dizinde uppershell adında bir dosya görüyoruz.
+
+4. Dosyanın SUID olduğunu tespit et
+
+ls -l ile dosyayı incelediğimizde uppershell'in SUID bit'ine sahip olduğunu ve sahibinin bandit33 olduğunu görüyoruz. Yani bu binary, bandit33 yetkisiyle çalışıyor.
+
+5. Yetkiyi doğrula ve parolayı oku
+
+whoami / id ile hangi kullanıcı ve yetkilerle çalıştığımızı kontrol edip, bandit33'ün parola dosyasını okuyabilecek ayrıcalığa sahip olduğumuzu doğruluyoruz. Ardından:
+
+cat /etc/bandit_pass/bandit33
+
+komutu ile bandit33'ün parolasına ulaşıyoruz.
+
+Öğrenilenler
+$0, harf içermeyen bir kaçış vektörüdür. Girdiyi büyük harfe çeviren bir filtre, harf içermeyen bir ifadeyi ($0) değiştiremez. Bu, "girdi filtreleme/dönüştürme mantığındaki boşlukları bulma" prensibinin zarif bir örneği — GTFOBins mantığıyla akraba.
+Kısıtlı shell'ler yine güvenli değil. 25→26'daki more/vim kaçışında olduğu gibi, burada da shell'in koyduğu kısıtlama (uppercase zorlaması) shell'in kendi özelliklerini (özel parametreler) kullanarak deliniyor.
+SUID teması bir kez daha karşımızda. 26→27'de gördüğümüz "sahibinin yetkisiyle çalışan binary → ayrıcalıklı dosya okuma" deseni burada da geçerli. Desen tanımak çözümü hızlandırıyor.
+Bu, Bandit'in (mevcut) son seviyesi. 32→33 geçişiyle wargame tamamlanmış oluyor; bandit34 henüz eklenmedi, 33'e ulaşınca tebrik mesajı görülür.
+Kaynaklar
+OverTheWire Bandit
+Bash özel parametreleri — $0 (çalışan shell/programın adı)
+GTFOBins — kısıtlı shell / SUID binary kaçış teknikleri
