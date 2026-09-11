@@ -46,9 +46,19 @@ elif port_number==0:
 else:
     print("Dynamic/Private port") """
 
-
+""" 
 CIDR_Prefix = input("Enter your subnet prefix in CIDR notation: ")
 CIDR_Prefix = int(CIDR_Prefix.split("/")[1])
 print(CIDR_Prefix)
 print("Your network can host up to :")
-print(2**(32-CIDR_Prefix)-2)
+print(2**(32-CIDR_Prefix)-2) """
+
+""" Zorlayıcı
+
+Kullanıcıdan aldığın bir sayının (str olarak) geçerli bir port numarası (0-65535, sadece rakam) olup olmadığını, hiç try/except veya kütüphane kullanmadan, sadece string metotları ve karşılaştırma operatörleriyle doğrula. """
+
+port_number = int(input("Enter port number: "))
+if 1<=port_number<=65535 :
+    print("Port Number Valid.")
+else: 
+    print("Invalid port number.")
