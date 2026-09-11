@@ -60,3 +60,42 @@ Kaynaklar
 OverTheWire Bandit
 more(1) man page
 GTFOBins — kısıtlı shell / binary kaçış teknikleri referansı
+
+
+
+
+
+
+OverTheWire Bandit — Level 26 → 27 Writeup
+
+Platform: OverTheWire Bandit Konu: SUID binary ile yetki yükseltme (privilege escalation)
+
+Özet
+
+Bandit26'ya (25→26 seviyesindeki shell escape ile) ulaştıktan sonra home dizininde iki dosya buluyoruz: bandit27-do ve text.txt. bandit27-do bir SUID binary — yani kendi sahibinin (bandit27) yetkileriyle çalışıyor, kim çalıştırırsa çalıştırsın. Bu, daha önce görülmüş klasik bir SUID sömürüsü: binary'nin çalıştırdığı yetkiyi kullanarak bandit27'nin parola dosyasını doğrudan okuyabiliyoruz.
+
+Adım Adım Çözüm
+1. Verilen dosyaları incele
+
+25→26 shell escape'i ile bandit26 hesabında gerçek bir bash oturumuna düştükten sonra ls ile dizindeki iki dosyayı görüyoruz: bandit27-do ve text.txt.
+
+2. bandit27-do ne yapıyor?
+
+Dosyayı çalıştırdığımızda, bunun bize başka bir kullanıcı olarak (bandit27 yetkisiyle) komut çalıştırma imkânı sağladığını görüyoruz. Bu, dosyanın SUID bit'i set edilmiş bir binary olduğunu ve sahibi bandit27 olduğu için, kim çalıştırırsa çalıştırsın komutun bandit27 yetkisiyle yürütüldüğünü gösteriyor — daha önceki seviyelerde (ör. setuid pratiği yaptığımız seviyelerde) gördüğümüz mantığın aynısı.
+
+3. Parolayı doğrudan oku
+
+SUID sayesinde bandit27'nin kendi parola dosyasını okuma yetkisine erişebiliyoruz:
+
+./bandit27-do cat /etc/bandit_pass/bandit27
+
+Bu komut, cat işlemini bandit27 yetkisiyle çalıştırıyor ve bandit27'nin parolasını doğrudan ekrana basıyor.
+
+Öğrenilenler
+SUID bit, dosyanın çalıştırılma yetkisini sahibine bağlar. Normal şartlarda bandit26, bandit27'nin parola dosyasını okuyamaz; ama SUID'li bir binary aracılığıyla dolaylı olarak bandit27 kimliğiyle komut çalıştırabiliyor.
+"Bu binary ne yapıyor?" sorusu her zaman ilk adım olmalı. Dosyayı argümansız çalıştırıp davranışını gözlemlemek, ne tür bir yetki/işlev sunduğunu hızlıca ortaya koyuyor.
+Bu, önceki seviyelerde görülen setuid mantığının doğrudan tekrarı. Aynı zafiyet sınıfı (SUID yanlış/kasıtlı yapılandırması), farklı bir binary üzerinden tekrar karşımıza çıktı — desen tanımak, çözüm süresini kısaltıyor.
+text.txt bu seviyede kullanılmadı. Muhtemelen sadece dizini dolduran/dikkat dağıtan bir dosya; çözüm tamamen bandit27-do'nun SUID davranışına dayanıyor.
+Kaynaklar
+OverTheWire Bandit
+GTFOBins — SUID/SGID binary sömürü teknikleri referans
