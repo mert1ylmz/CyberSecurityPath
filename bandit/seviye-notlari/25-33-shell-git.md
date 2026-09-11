@@ -214,3 +214,68 @@ Kaynaklar
 OverTheWire Bandit
 git tag man page
 git show man page
+
+
+# OverTheWire Bandit — Level 31 → 32 Writeup
+
+**Platform:** OverTheWire Bandit
+**Konu:** Git'e commit oluşturup uzak repoya push etme (.gitignore kısıtlamasını aşma)
+
+---
+
+## Özet
+
+Önceki git seviyelerinden farklı olarak burada repodan bilgi *okumuyoruz*, aksine repoya bir şey *push ediyoruz*. Seviye bizden belirli bir içeriğe sahip bir dosyayı, belirtilen branch'e commit'leyip push etmemizi istiyor. Dosya adı, içeriği ve hedef branch bilgisi bize veriliyor. İstenen push başarıyla sunucuya ulaştığında, sunucu geri bir mesaj döndürüyor ve bu mesajın içinde bandit32'nin parolası yer alıyor.
+
+---
+
+## Adım Adım Çözüm
+
+### 1. Görevi oku
+Repoyu klonladıktan sonra README, bizden ne istendiğini söylüyor: belirtilen adda bir dosya oluştur, içine istenen içeriği yaz, ve bunu belirtilen branch'e push et.
+
+### 2. Dosyayı oluştur
+İstenen dosyayı `nano` ile oluşturup içine görevde belirtilen içeriği yazıyoruz:
+```
+nano key.txt
+```
+
+### 3. Dosyayı stage'e ekle
+```
+git add key.txt
+```
+Bu komut, oluşturduğumuz dosyayı commit'e dahil edilmek üzere hazırlıyor (staging area'ya alıyor).
+
+> **Not:** Bu seviyede repoda genellikle bir `.gitignore` dosyası bulunur ve `*.txt` gibi bir kural ile `.txt` dosyalarının eklenmesini engeller. Bu durumda `git add key.txt` reddedilir; `git add -f key.txt` (force) ile bu kısıtlama aşılabilir.
+
+### 4. Commit oluştur
+```
+git commit -m "commit mesajı"
+```
+Yaptığımız değişikliği bir açıklama mesajıyla birlikte kaydediyoruz.
+
+### 5. Push et
+```
+git push
+```
+Commit'i uzak repoya (belirtilen branch'e) gönderiyoruz.
+
+### 6. Parolayı al
+Push sırasında repoya erişim için bölümün (bandit31) parolasını giriyoruz. Push başarıyla tamamlandığında sunucu bir cevap mesajı döndürüyor — bu mesajın içinde bandit32 için gerekli olan parola yer alıyor.
+
+---
+
+## Öğrenilenler
+
+- **Git yalnızca okuma değil, yazma yönünde de kullanılır.** Önceki seviyeler (log, branch, tag) repodan veri *çekmeye* odaklıyken, bu seviye tam git iş akışının diğer yarısını — `add → commit → push` — pratik ettiriyor.
+- **`.gitignore` bir güvenlik sınırı değildir.** Bir dosyanın ignore edilmesi, onun eklenmesini kesin olarak engellemez; `git add -f` ile kural override edilebilir. Bu, "istemci tarafı kısıtlamalar güvenlik sağlamaz" prensibinin git'teki karşılığı.
+- **Sunucu tarafı hook'lar davranışı tetikleyebilir.** Push edilen içerik doğrulandığında sunucunun geri bir parola mesajı döndürmesi, git sunucularında pre-receive/post-receive hook mantığının bir örneği — push'a tepki olarak sunucuda kod çalışabilir.
+- **Bu, Bandit git serisinin (28→32) kapanışı.** clone → log -p → log --all → tag → push zinciriyle git'in hem okuma hem yazma tarafını baştan sona görmüş olduk.
+
+---
+
+## Kaynaklar
+- [OverTheWire Bandit](https://overthewire.org/wargames/bandit/)
+- `git add`, `git commit`, `git push` man page'leri
+- `gitignore(5)` — `.gitignore` kuralları ve `-f` ile override
+
