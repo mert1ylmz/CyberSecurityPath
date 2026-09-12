@@ -47,10 +47,10 @@ print(f"Username: {username},\nUID: {userid},\n{shell}")
 if shell == "/bin/bash" or shell == "/bin/sh":
     print("Interactive Shell") """
 
-
+""" 
 message = "Slicing pratiği"
 message = list(message)
 i = len(message)
 while i != 0:
     print(message[i-1])
-    i = i-1
+    i = i-1 """
