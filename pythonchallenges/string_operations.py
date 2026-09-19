@@ -48,7 +48,7 @@ if shell == "/bin/bash" or shell == "/bin/sh":
     print("Interactive Shell") """
 
 
-message = "Casio"
+""" message = "Casio"
 message_list= list(message)
 message_reversed = ""
 
@@ -62,4 +62,36 @@ print(message_reversed)
 if(message_reversed == message):
     print("Palindrome string.")
 else:
-    print("Not palindrome.")
+    print("Not palindrome.") """
+
+
+http_header = """
+GET /index.html HTTP/1.1
+Host: www.example.com
+User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/120.0.0.0 Safari/537.36
+Accept: text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,*/*;q=0.8
+Accept-Language: tr-TR,tr;q=0.9,en-US;q=0.8,en;q=0.7
+Accept-Encoding: gzip, deflate, br
+Connection: keep-alive
+Upgrade-Insecure-Requests: 1
+Sec-Fetch-Dest: document
+Sec-Fetch-Mode: navigate
+Sec-Fetch-Site: none
+"""
+
+http_header = http_header.split("\n")
+header_blocks = {}
+
+for line in http_header:
+    if ":" in line:
+        key, value = line.split(":", 1)
+        header_blocks[key.strip()] = value.strip()
+        print(f"Success.")
+
+    else:
+        if line.split():
+            print(f"Not a header. Request line {line.strip()}")
+
+print(header_blocks)
+    
+    
