@@ -47,10 +47,19 @@ print(f"Username: {username},\nUID: {userid},\n{shell}")
 if shell == "/bin/bash" or shell == "/bin/sh":
     print("Interactive Shell") """
 
-""" 
-message = "Slicing pratiği"
-message = list(message)
+
+message = "Casio"
+message_list= list(message)
+message_reversed = ""
+
 i = len(message)
 while i != 0:
-    print(message[i-1])
-    i = i-1 """
+    message_reversed = message_reversed + message_list[i-1]
+    i = i-1
+
+print(message_reversed)
+
+if(message_reversed == message):
+    print("Palindrome string.")
+else:
+    print("Not palindrome.")
