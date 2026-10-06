@@ -22,3 +22,24 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
 ### 3. Authentication Vulnerabilities
 - **Brute Force & Username Enumeration**
   - [Username enumeration via different responses](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-01-username-enumeration-via-different-responses.md)
+
+### 4. Server-Side Request Forgery (SSRF)
+- **Basic SSRF**
+  - [Basic SSRF against the local server](file:///Users/mert/Projects/CyberSecurityPath/portswigger/ssrf/lab-01-basic-ssrf-against-the-local-server.md)
+  - [Basic SSRF against another back-end system](file:///Users/mert/Projects/CyberSecurityPath/portswigger/ssrf/lab-02-basic-ssrf-against-another-back-end-system.md)
+
+### 5. File Upload Vulnerabilities
+- **Web Shell Upload**
+  - [Remote code execution via web shell upload](file:///Users/mert/Projects/CyberSecurityPath/portswigger/file-upload/lab-01-remote-code-execution-via-web-shell-upload.md)
+- **Content-Type Restriction Bypass**
+  - [Web shell upload via Content-Type restriction bypass](file:///Users/mert/Projects/CyberSecurityPath/portswigger/file-upload/lab-02-web-shell-upload-via-content-type-restriction-bypass.md)
+
+### 6. OS Command Injection
+- **Simple Case**
+  - [OS command injection, simple case](file:///Users/mert/Projects/CyberSecurityPath/portswigger/os-command-injection/lab-01-os-command-injection-simple-case.md)
+
+### 7. SQL Injection
+- **WHERE Clause & Hidden Data**
+  - [SQL injection vulnerability in WHERE clause allowing retrieval of hidden data](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-01-sqli-where-clause-hidden-data.md)
+- **Login Bypass**
+  - [SQL injection vulnerability allowing login bypass](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-02-sqli-login-bypass.md)
