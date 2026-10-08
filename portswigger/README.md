@@ -43,3 +43,6 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
   - [SQL injection vulnerability in WHERE clause allowing retrieval of hidden data](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-01-sqli-where-clause-hidden-data.md)
 - **Login Bypass**
   - [SQL injection vulnerability allowing login bypass](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-02-sqli-login-bypass.md)
+- **UNION Attacks**
+  - [SQL injection UNION attack, determining the number of columns returned by the query](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-03-sqli-union-attack-determining-number-of-columns.md)
+  - [SQL injection UNION attack, finding a column containing text](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-04-sqli-union-attack-finding-column-containing-text.md)
