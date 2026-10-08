@@ -46,3 +46,10 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
 - **UNION Attacks**
   - [SQL injection UNION attack, determining the number of columns returned by the query](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-03-sqli-union-attack-determining-number-of-columns.md)
   - [SQL injection UNION attack, finding a column containing text](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-04-sqli-union-attack-finding-column-containing-text.md)
+  - [SQL injection UNION attack, retrieving data from other tables](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-05-sqli-union-attack-retrieving-data-from-other-tables.md)
+  - [SQL injection UNION attack, retrieving multiple values in a single column](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-06-sqli-union-attack-retrieving-multiple-values-in-a-single-column.md)
+- **Database Examination & Metadata**
+  - [SQL injection attack, querying the database type and version on MySQL and Microsoft](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-07-sqli-querying-database-type-and-version-mysql-microsoft.md)
+  - [SQL injection attack, listing the database contents on non-Oracle databases](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-08-sqli-listing-database-contents-non-oracle.md)
+- **Blind SQL Injection**
+  - [Blind SQL injection with conditional responses](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-09-sqli-blind-conditional-responses.md)
