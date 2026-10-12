@@ -216,3 +216,9 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+#CV generator
+build_cv_docx.py
+build_cv_html.py
+Mert_Yilmaz_CV_EN.html
+Mert_Yilmaz_CV_TR.html

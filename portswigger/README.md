@@ -51,5 +51,8 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
 - **Database Examination & Metadata**
   - [SQL injection attack, querying the database type and version on MySQL and Microsoft](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-07-sqli-querying-database-type-and-version-mysql-microsoft.md)
   - [SQL injection attack, listing the database contents on non-Oracle databases](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-08-sqli-listing-database-contents-non-oracle.md)
+- **Error-Based SQL Injection**
+  - [Visible error-based SQL injection](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-10-sqli-visible-error-based.md)
 - **Blind SQL Injection**
   - [Blind SQL injection with conditional responses](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-09-sqli-blind-conditional-responses.md)
+  - [Blind SQL injection with time delays and information retrieval](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-11-sqli-blind-time-delays-information-retrieval.md)
