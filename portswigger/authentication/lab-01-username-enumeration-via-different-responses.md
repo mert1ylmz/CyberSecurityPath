@@ -1,19 +1,60 @@
 # Username enumeration via different responses
 
-## Konu Açıklaması (Authentication Vulnerabilities & Brute Force)
+## Konu Açıklaması (Authentication Fundamentals & Brute Force)
 
-### Authentication vs. Authorization
-- **Authentication (Kimlik Doğrulama):** Kullanıcının iddia ettiği kişi olduğunu doğrulama sürecidir ("Kullanıcı kim?").
-- **Authorization (Yetkilendirme):** Kimliği doğrulanmış kullanıcının sistem üzerinde neleri yapmaya yetkisi olduğunu belirleme sürecidir ("Kullanıcı ne yapabilir?").
+### 1. Temel Kavramlar
 
-### Authentication Vulnerabilities (Kimlik Doğrulama Zafiyetleri)
-Saldırganların kullanıcı hesaplarına yetkisiz erişim sağlamasına, hassas verileri sızdırmasına ve diğer gelişmiş saldırı türlerine zemin hazırlamasına neden olan güvenlik açıklarına verilen genel addır.
+#### What is Authentication? (Kimlik Doğrulama Nedir?)
+* **Authentication**, kullanıcının veya istemcinin (client) kimliğini doğrulama işlemidir.
+* Web siteleri internete bağlı herkesin erişimine açıktır; bu nedenle sağlam bir kimlik doğrulama mekanizması zorunludur.
 
-### Brute Force Attacks (Kaba Kuvvet Saldırıları)
-Saldırganın deneme-yanılma yöntemi ile geçerli kullanıcı adı ve parolaları tahmin etmeye çalıştığı otomatize saldırı türüdür. Sadece rastgele kombinasyonlarla değil, sezgisel (heuristic) algoritmalar ve özel kelime listeleri (wordlists) kullanılarak da gerçekleştirilir.
+#### What is the Difference Between Authentication and Authorization?
+* **Authentication (Kimlik Doğrulama):** Bir kullanıcının olduğunu iddia ettiği kişi olup olmadığını doğrulamaktır ("Kimsin?").
+* **Authorization (Yetkilendirme):** Kimliği doğrulanmış bir kullanıcının hangi kaynaklara erişim hakkına/yetkisine sahip olduğunu belirlemektir ("Neleri yapmaya yetkin var?").
 
-### Username Enumeration (Kullanıcı Adı Numaralandırma)
-Web uygulamasının geçerli ve geçersiz kullanıcı adları için farklı HTTP yanıtları (yanıt metni, hata kodu, yanıt süresi vb.) döndürmesi durumudur. Saldırgan bu davranış farklılıklarını inceleyerek sistemde tanımlı geçerli kullanıcı adlarını tespit edebilir.
+#### How Do Authentication Vulnerabilities Arise? (Zafiyetler Nasıl Ortaya Çıkar?)
+Çoğu zafiyet temelde iki şekilde ortaya çıkar:
+1. **Doğrulama mekanizması zayıftır.**
+2. **Mantıksal hatalar (logic flaws) ve zayıf kod kullanımı.**
+
+#### What is the Impact of Vulnerable Authentication? (Zafiyetli Kimlik Doğrulamanın Etkisi Nedir?)
+* Zayıf doğrulamanın çok ciddi sonuçları olabilir.
+* Eğer bir saldırgan brute-force saldırısıyla başka bir kullanıcının bilgilerine erişim sağlarsa, bütün veriler ve izinler tehlikeye girmiş olur.
+
+---
+
+### 2. Parola Tabanlı Giriş Zafiyetleri & Brute-Force
+
+#### Vulnerabilities in Password-Based Login
+Kullanıcının giriş yapmak için bir kullanıcı adı ve gizli bir şifre kullandığı sistemlerde, eğer saldırgan bu bilgileri ele geçirirse hesap tamamen tehlike altına girer.
+
+#### Brute-Force Attacks (Kaba Kuvvet Saldırıları)
+* **Brute-Force:** Saldırganın kullanıcı bilgilerini deneme-yanılma yöntemiyle bulmaya çalışmasıdır.
+* Genellikle otomatikleştirilmiş araçlar ve **wordlist**'ler ile gerçekleştirilir.
+* Her zaman tamamen rastgele denemelerden ibaret değildir; topluma açık kaynaklardan elde edilmiş verilerle veya özel algoritmalardan beslenerek de yapılabilir.
+* Sadece şifreyle giriş yapılan ve arkasında sağlam bir koruma mekanizması bulunmayan web siteleri bu saldırılara karşı aşırı savunmasızdır.
+
+#### Brute-Forcing Usernames (Kullanıcı Adı Tespiti)
+Eğer sistemdeki kullanıcı adları belirli bir örüntüyü (pattern) takip ediyorsa, brute-force saldırılarına karşı özellikle savunmasız kalır.
+* **İnceleme Aşaması:** Web sitesinin kullanıcı adlarını gizli tutup tutmadığı kontrol edilmelidir.
+* **Profil Verileri:** Profil içerisindeki bilgiler gizli olsa dahi, genellikle profil için kullanılan isim ile sisteme giriş yapılırken kullanılan isim aynı olabilmektedir.
+* **HTTP Yanıtları:** HTTP yanıtlarında e-posta adresleri görünüyor mu kontrol edilmelidir; zira kimi zaman yanıtlar yüksek öncelikli/yetkili kullanıcıların e-posta adreslerini ifşa edebilir.
+
+#### Brute-Forcing Passwords (Parola Tespiti)
+* Kullanıcı adları gibi parolalar da brute-force ile kırılabilir.
+* Çoğu web sitesi zayıf parolaları önlemek amacıyla parola oluşturma kuralları (karmaşıklık şartları vb.) içerir.
+
+---
+
+### 3. Username Enumeration (Kullanıcı Adı Numaralandırma)
+Saldırganın, web sitesine girdiği kullanıcı adının sistemde geçerli olup olmadığını anlayabildiği durumlardır.
+* **Örnek:** Doğru kullanıcı adı girildiğinde "şifre yanlış" denmesi ya da girilen kullanıcı adının doğrudan dikkate alınması/farklı işlenmesi.
+
+Brute-force kullanarak sisteme girmeye çalışan saldırganın dikkat etmesi gereken temel yanıt işaretleri:
+* **Status Codes:** Brute-force saldırısı sırasında yapılan her denemede çoğunlukla aynı HTTP status code görülür. Ancak bir tanesinin farklı olması önemli bir ipucu (güçlü bir işaret) olabilir.
+* **Error Messages:** Girilen bilgilerden hangisinin yanlış olduğuna bağlı olarak hata mesajları farklılık gösterebilir (örn. *"Invalid username"* vs *"Incorrect password"*).
+* **Response Times:** Gönderilen isteklerin çoğu aynı sürede dönerken, bir tanesinin belirgin olarak daha farklı bir sürede dönmesi (örn. arka plandaki hash işleminin zaman alması); girilen kullanıcı adı ve parolanın geçerli bir deneme olduğunu gösterebilir.
+
 
 ---
 

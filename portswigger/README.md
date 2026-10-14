@@ -22,6 +22,10 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
 ### 3. Authentication Vulnerabilities
 - **Brute Force & Username Enumeration**
   - [Username enumeration via different responses](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-01-username-enumeration-via-different-responses.md)
+  - [Username enumeration via subtly different responses](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-02-username-enumeration-via-subtly-different-responses.md)
+  - [Username enumeration via response timing](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-03-username-enumeration-via-response-timing.md)
+- **Flawed Brute-Force Protection**
+  - [Broken brute-force protection, IP block](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-04-broken-brute-force-protection-ip-block.md)
 
 ### 4. Server-Side Request Forgery (SSRF)
 - **Basic SSRF**
@@ -56,3 +60,6 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
 - **Blind SQL Injection**
   - [Blind SQL injection with conditional responses](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-09-sqli-blind-conditional-responses.md)
   - [Blind SQL injection with time delays and information retrieval](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-11-sqli-blind-time-delays-information-retrieval.md)
+- **Filter Bypass & XML Encoding (Different Contexts)**
+  - [SQL injection with filter bypass via XML encoding](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-12-sqli-filter-bypass-via-xml-encoding.md)
+
