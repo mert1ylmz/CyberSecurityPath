@@ -24,8 +24,14 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
   - [Username enumeration via different responses](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-01-username-enumeration-via-different-responses.md)
   - [Username enumeration via subtly different responses](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-02-username-enumeration-via-subtly-different-responses.md)
   - [Username enumeration via response timing](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-03-username-enumeration-via-response-timing.md)
+  - [Username enumeration via account lock](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-05-username-enumeration-via-account-lock.md)
 - **Flawed Brute-Force Protection**
   - [Broken brute-force protection, IP block](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-04-broken-brute-force-protection-ip-block.md)
+- **Multi-Factor Authentication (MFA / 2FA)**
+  - [2FA simple bypass](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-06-2fa-simple-bypass.md)
+  - [2FA broken logic](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-07-2fa-broken-logic.md)
+- **Other Authentication Mechanisms (Cookies & Remember Me)**
+  - [Brute-forcing a stay-logged-in cookie](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-08-brute-forcing-a-stay-logged-in-cookie.md)
 
 ### 4. Server-Side Request Forgery (SSRF)
 - **Basic SSRF**
