@@ -32,6 +32,12 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
   - [2FA broken logic](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-07-2fa-broken-logic.md)
 - **Other Authentication Mechanisms (Cookies & Remember Me)**
   - [Brute-forcing a stay-logged-in cookie](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-08-brute-forcing-a-stay-logged-in-cookie.md)
+  - [Offline password cracking](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-09-offline-password-cracking.md)
+- **Password Reset Vulnerabilities**
+  - [Password reset broken logic](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-10-password-reset-broken-logic.md)
+  - [Password reset poisoning via middleware](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-11-password-reset-poisoning-via-middleware.md)
+- **Password Change Vulnerabilities**
+  - [Password brute-force via password change](file:///Users/mert/Projects/CyberSecurityPath/portswigger/authentication/lab-12-password-brute-force-via-password-change.md)
 
 ### 4. Server-Side Request Forgery (SSRF)
 - **Basic SSRF**
