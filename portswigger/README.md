@@ -75,3 +75,8 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
 - **Filter Bypass & XML Encoding (Different Contexts)**
   - [SQL injection with filter bypass via XML encoding](file:///Users/mert/Projects/CyberSecurityPath/portswigger/sql-injection/lab-12-sqli-filter-bypass-via-xml-encoding.md)
 
+### 8. Cross-site Scripting (XSS)
+- **XSS Temelleri, Saldırı Türleri & Savunma Yöntemleri**
+  - [Cross-site scripting (XSS) - Teori, Reflected/Stored/DOM, PoC & Savunma](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/cross-site-scripting.md)
+
+
