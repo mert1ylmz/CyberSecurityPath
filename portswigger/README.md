@@ -78,5 +78,13 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
 ### 8. Cross-site Scripting (XSS)
 - **XSS Temelleri, Saldırı Türleri & Savunma Yöntemleri**
   - [Cross-site scripting (XSS) - Teori, Reflected/Stored/DOM, PoC & Savunma](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/cross-site-scripting.md)
+- **Reflected XSS**
+  - [Reflected XSS into HTML context with nothing encoded](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-01-reflected-xss-into-html-context-with-nothing-encoded.md)
+- **Stored XSS**
+  - [Stored XSS into HTML context with nothing encoded](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-02-stored-xss-into-html-context-with-nothing-encoded.md)
+- **DOM-based XSS**
+  - [DOM XSS in document.write sink using source location.search](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-03-dom-xss-in-document-write-sink-using-source-location-search.md)
+
+
 
 

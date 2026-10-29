@@ -9,6 +9,7 @@ Bu dizin, TryHackMe platformunda takip edilen öğrenme yolları (**Cyber Securi
 ### 1. [CTF Odaları & Writeup'lar](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/)
 - [Pickle Rick](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/pickle-rick.md) — Web keşfi, robots.txt incelemesi, komut enjeksiyonu ve sudo yetki yükseltme.
 - [Surfer](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/surfer.md) — Zayıf kimlik doğrulama, dahili yönetim paneli keşfi, Burp Suite ile SSRF (Server-Side Request Forgery) istismarı.
+- [Hydra](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/hydra.md) — Web oturum açma formları (HTTP-POST) ve SSH servislerine karşı THC-Hydra ile parola kırma ve sözlük saldırıları (Brute-Force).
 
 ### 2. [Networking (Ağ Temelleri & Trafik Analizi)](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/networking/)
 - [Introductory Networking](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/networking/introductory-networking.md) — OSI ve TCP/IP modelleri, paket kapsülleme (encapsulation), ping, traceroute, whois ve DNS çözümleme mantığı.
@@ -25,6 +26,7 @@ Bu dizin, TryHackMe platformunda takip edilen öğrenme yolları (**Cyber Securi
 
 ### 4. [Web Application Security](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/web-security/)
 - [Web Application Security](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/web-security/web-application-security.md) — Web saldırı senaryoları ve OWASP Top 10 zafiyet kategorileri (Authentication, Access Control, Injection vb.).
+- *İlgili Araç:* Oturum açma formlarına yönelik kaba kuvvet saldırıları için [Hydra](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/hydra.md) dokümanına da başvurabilirsiniz.
 
 ### 5. [Scripting](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/scripting/)
 - [Bash Scripting](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/scripting/bash-scripting.md) — Linux ortamında otomasyon ve güvenlik araçları için temel Bash betik geliştirme.
