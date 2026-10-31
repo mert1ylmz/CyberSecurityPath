@@ -162,6 +162,50 @@ DOM XSS testlerinde tarayıcının "Sayfa Kaynağını Görüntüle" (*View Sour
 3. **Burp Suite DOM Invader:**
    * Burp Suite dahili Chromium tarayıcısında bulunan DOM Invader eklentisi, sayfadaki source ve sink ilişkilerini otomatik olarak takip ederek DOM XSS zafiyetlerini tespit eder.
 
+### 7.4 DOM XSS ile Reflected ve Stored Verilerin Birleşimi (Hibrit DOM XSS)
+
+#### A. Saf (Pure) DOM XSS vs. Sunucu Kaynaklı DOM XSS
+
+* **Saf (Pure) DOM XSS:** Zafiyet tamamen istemci tarafında (tarayıcı belleğinde) başlar ve biter. Sayfadaki JavaScript kodu veriyi doğrudan tarayıcı API'lerinden (örneğin `location.search`, `location.hash` veya `document.referrer`) okur ve sunucuya hiç göndermeden doğrudan tehlikeli bir alıcıya (`sink`) aktarır. Sunucu bu süreçte tamamen habersiz ve tarafsızdır.
+* **Sunucu Kaynaklı DOM XSS (Reflected & Stored DOM XSS):** DOM XSS kaynakları (`source`) yalnızca tarayıcı nesneleriyle sınırlı değildir; bizzat sunucunun döndürdüğü yanıt içerisinden de beslenebilir. Sunucu, gelen isteği işleyip HTML/JSON yanıtı içerisine geri yansıttığında veya veritabanından okuyup sayfaya bastığında, bu veri istemci tarafındaki JavaScript için bir **girdi kaynağına (source)** dönüşür.
+
+#### B. Reflected DOM XSS (Yansıyan DOM XSS)
+
+Reflected DOM XSS zafiyetinde süreç iki aşamalı hibrit bir yapıda gerçekleşir:
+
+1. **Sunucu Tarafı (Server-Side Reflection):** Sunucu, gelen HTTP isteğindeki bir parametreyi alır ve yanıtın içerisine (örneğin bir JavaScript dize sabitine, JSON çıktısına veya gizli bir form alanına) dinamik olarak yerleştirir.
+2. **İstemci Tarafı (Client-Side Execution):** İstemci tarafındaki meşru bir betik, sunucudan yansıyan bu veriyi DOM üzerinden, AJAX yanıtından veya JS değişkeninden okur ve tehlikeli bir `sink` fonksiyonuna iletir.
+
+**Güvensiz Kod Kalıbı Örneği:**
+```javascript
+// Sunucu HTTP yanıtı üretirken URL'den gelen veriyi doğrudan JS içine gömer:
+eval('var data = "reflected string"');
+```
+
+**Taint Flow (Bulaşma Akışı) Analizi:**
+```text
+[Saldırgan Girdisi (URL)] 
+       │
+       ▼ (HTTP İsteği)
+[Web Sunucusu] ── (Parametreyi JS değişkenine yansıtır) ──► [HTTP Yanıtı / HTML-JSON]
+                                                                   │
+                                                                   ▼
+                                                       [eval() / innerHTML Sink] ──► [XSS Tetiklenir]
+```
+
+* Eğer sunucu çift tırnak (`"`) veya kaçış karakterlerini (`\`) düzgün işlemeden string içerisine basarsa:
+  * Saldırgan girdisi: `"; alert(1); //`
+  * Çıkan kod: `eval('var data = ""; alert(1); //"');`
+* Burada doğrudan HTML enjeksiyonu (`<script>`) engellenmiş olsa dahi, istemcideki `eval()` fonksiyonu bu dizeyi ayrıştırdığı anda zararlı JavaScript çalıştırılır.
+
+#### C. Stored DOM XSS (Kalıcı / Saklanan DOM XSS)
+
+Stored DOM XSS senaryosunda saldırganın zararlı verisi öncelikle sunucunun veritabanına veya kalıcı depolama alanına kaydedilir (örneğin kullanıcı yorumları, profil isimleri, sohbet geçmişi):
+
+1. Saldırgan zararlı payload'ı sunucuya gönderir ve veritabanına yazdırır.
+2. Kurban sayfayı açtığında, sunucu veritabanındaki bu veriyi güvenli olduğunu varsayarak bir API yanıtı (JSON) veya veri özniteliği (`data-*`) olarak sayfaya basar.
+3. İstemcideki JavaScript kodu bu saklanan veriyi okur ve güvensiz bir alıcıya (`innerHTML`, `document.write`, `$()` vb.) filtresiz yazar.
+
 ---
 
 ## 8. What can XSS be used for? (Saldırgan Neler Yapabilir?)
@@ -212,6 +256,9 @@ XSS zafiyetlerini önlemek için derinlemesine savunma (Defense-in-Depth) yakla�
 - [Lab 04: DOM XSS in innerHTML sink using source location.search](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-04-dom-xss-in-innerhtml-sink-using-source-location-search.md) — `innerHTML` `<script>` bloklarını yürütmediği için inline event handler (`<img src="1" onerror="alert()">`) ile DOM XSS istismarı.
 - [Lab 05: DOM XSS in jQuery anchor href attribute sink using location.search source](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-05-dom-xss-in-jquery-anchor-href-attribute-sink-using-location-search-source.md) — jQuery `.attr("href", ...)` sink'ine `javascript:` sözde protokolü (`javascript:alert(document.cookie)`) enjeksiyonu ile DOM XSS istismarı.
 - [Lab 06: DOM XSS in document.write sink using source location.search inside a select element](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-06-dom-xss-in-document-write-sink-using-source-location-search-inside-a-select-element.md) — `<select>` elemanı içinden tag breakout (`</select><img src="1" onerror="alert()">`) yöntemi ile DOM XSS istismarı.
+- [Lab 07: DOM XSS in jQuery selector sink using a hashchange event](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-07-dom-xss-in-jquery-selector-sink-using-a-hashchange-event.md) — `<iframe>` çift yükleme (double load) tekniğiyle `hashchange` olayını tetikleyerek jQuery `$()` seçici sink'inde DOM XSS istismarı.
+- [Lab 08: DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-08-dom-xss-in-angularjs-expression-with-angle-brackets-and-double-quotes-html-encoded.md) — `ng-app` kapsamında `{{$on.constructor('alert(1)')()}}` ifadesiyle AngularJS CSTI / DOM XSS istismarı.
+- [Lab 09: Reflected DOM XSS](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-09-reflected-dom-xss.md) — Sunucudan dönen JSON yanıtında backslash kaçışı (`\"-alert(1)}//`) ile `eval()` sink'i üzerinden Reflected DOM XSS istismarı.
 
 ---
 

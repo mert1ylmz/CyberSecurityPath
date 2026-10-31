@@ -87,6 +87,9 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
   - [DOM XSS in innerHTML sink using source location.search](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-04-dom-xss-in-innerhtml-sink-using-source-location-search.md)
   - [DOM XSS in jQuery anchor href attribute sink using location.search source](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-05-dom-xss-in-jquery-anchor-href-attribute-sink-using-location-search-source.md)
   - [DOM XSS in document.write sink using source location.search inside a select element](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-06-dom-xss-in-document-write-sink-using-source-location-search-inside-a-select-element.md)
+  - [DOM XSS in jQuery selector sink using a hashchange event](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-07-dom-xss-in-jquery-selector-sink-using-a-hashchange-event.md)
+  - [DOM XSS in AngularJS expression with angle brackets and double quotes HTML-encoded](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-08-dom-xss-in-angularjs-expression-with-angle-brackets-and-double-quotes-html-encoded.md)
+  - [Reflected DOM XSS](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-09-reflected-dom-xss.md)
 
 
 
