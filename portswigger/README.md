@@ -80,6 +80,8 @@ Bu dizin, PortSwigger Web Security Academy üzerinde tamamlanan lab çözümleri
   - [Cross-site scripting (XSS) - Teori, Reflected/Stored/DOM, PoC & Savunma](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/cross-site-scripting.md)
 - **Reflected XSS**
   - [Reflected XSS into HTML context with nothing encoded](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-01-reflected-xss-into-html-context-with-nothing-encoded.md)
+  - [Reflected XSS into HTML context with most tags and attributes blocked](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-10-reflected-xss-into-html-context-with-most-tags-and-attributes-blocked.md)
+  - [Reflected XSS into HTML context with all tags blocked except custom ones](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-11-reflected-xss-into-html-context-with-all-tags-blocked-except-custom-ones.md)
 - **Stored XSS**
   - [Stored XSS into HTML context with nothing encoded](file:///Users/mert/Projects/CyberSecurityPath/portswigger/xss/lab-02-stored-xss-into-html-context-with-nothing-encoded.md)
 - **DOM-based XSS**
