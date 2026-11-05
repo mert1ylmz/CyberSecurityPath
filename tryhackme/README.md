@@ -10,6 +10,9 @@ Bu dizin, TryHackMe platformunda takip edilen öğrenme yolları (**Cyber Securi
 - [Pickle Rick](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/pickle-rick.md) — Web keşfi, robots.txt incelemesi, komut enjeksiyonu ve sudo yetki yükseltme.
 - [Surfer](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/surfer.md) — Zayıf kimlik doğrulama, dahili yönetim paneli keşfi, Burp Suite ile SSRF (Server-Side Request Forgery) istismarı.
 - [Hydra](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/hydra.md) — Web oturum açma formları (HTTP-POST) ve SSH servislerine karşı THC-Hydra ile parola kırma ve sözlük saldırıları (Brute-Force).
+- [Bounty Hacker](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/bounty-hacker.md) — Anonim FTP keşfi, Hydra ile SSH parola kırma ve GTFOBins (`tar`) üzerinden `sudo` yetki yükseltme.
+- [Agent Sudo](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/agent-sudo.md) — User-Agent manipülasyonu, FTP brute-force, steganografi (`binwalk`, `john`, `steghide`), OSINT ve `CVE-2019-14287` ile `sudo` yetki yükseltme.
+- [Overpass](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/overpass.md) — Gobuster dizin taraması, `SessionToken` cookie manipülasyonu (Broken Auth), `ssh2john` ile RSA parola kırma ve `/etc/hosts` + `cron` üzerinden yetki yükseltme.
 
 ### 2. [Networking (Ağ Temelleri & Trafik Analizi)](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/networking/)
 - [Introductory Networking](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/networking/introductory-networking.md) — OSI ve TCP/IP modelleri, paket kapsülleme (encapsulation), ping, traceroute, whois ve DNS çözümleme mantığı.

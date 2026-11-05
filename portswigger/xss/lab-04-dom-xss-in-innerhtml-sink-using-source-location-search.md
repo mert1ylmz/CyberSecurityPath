@@ -1,4 +1,4 @@
-# DOM XSS in innerHTML sink using source location.search
+   # DOM XSS in innerHTML sink using source location.search
 
 ## Konu Açıklaması (DOM-based XSS: innerHTML Sink)
 
