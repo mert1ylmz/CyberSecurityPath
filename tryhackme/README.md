@@ -13,6 +13,8 @@ Bu dizin, TryHackMe platformunda takip edilen öğrenme yolları (**Cyber Securi
 - [Bounty Hacker](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/bounty-hacker.md) — Anonim FTP keşfi, Hydra ile SSH parola kırma ve GTFOBins (`tar`) üzerinden `sudo` yetki yükseltme.
 - [Agent Sudo](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/agent-sudo.md) — User-Agent manipülasyonu, FTP brute-force, steganografi (`binwalk`, `john`, `steghide`), OSINT ve `CVE-2019-14287` ile `sudo` yetki yükseltme.
 - [Overpass](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/overpass.md) — Gobuster dizin taraması, `SessionToken` cookie manipülasyonu (Broken Auth), `ssh2john` ile RSA parola kırma ve `/etc/hosts` + `cron` üzerinden yetki yükseltme.
+- [Net Sec Challenge](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/net-sec-challenge.md) — Tam port taraması (`-p-`), banner analizi, standart dışı portta (`10121`) Hydra FTP brute-force ve `nmap -sN` (Null Scan) ile IDS atlatma.
+- [Brooklyn Nine Nine](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/ctf/brooklyn-nine-nine.md) — Kaynak kod analizi, `stegseek` ile steganografi parola kırma ve GTFOBins (`nano`) üzerinden `sudo` yetki yükseltme.
 
 ### 2. [Networking (Ağ Temelleri & Trafik Analizi)](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/networking/)
 - [Introductory Networking](file:///Users/mert/Projects/CyberSecurityPath/tryhackme/networking/introductory-networking.md) — OSI ve TCP/IP modelleri, paket kapsülleme (encapsulation), ping, traceroute, whois ve DNS çözümleme mantığı.
